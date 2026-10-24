@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Carvalho Farma — Saúde para seguir em frente</title>
-  <meta name="description" content="Farmácia na Parangaba, Fortaleza. Peça pelo WhatsApp e receba em casa. Aberta todo dia, com farmacêutico em todo o horário.">
+  <meta name="description" content="Peça pelo WhatsApp ou por telefone e receba em casa. Aberta todo dia, com farmacêutico em todo o horário.">
   <meta name="theme-color" content="#FFF8EA">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,6 +66,12 @@
     <a class="logo-link" href="#conteudo">
       <img class="logo" src="assets/logo-horizontal.png" width="460" height="123" alt="Carvalho Farma">
     </a>
+    <nav class="site-nav" aria-label="Seções">
+      <a href="#como-pedir">Pedir</a>
+      <a href="#entrega">Entrega</a>
+      <a href="#horario">Horário</a>
+      <a href="#servicos">Serviços</a>
+    </nav>
   </header>
 
   <main id="conteudo">
@@ -73,30 +79,11 @@
       <img class="hero-leaf" src="assets/folha.png" alt="">
       <div class="wrap">
         <h1 id="titulo">
-          <span>Novo nome.</span>
-          <span>O mesmo cuidado</span>
-          <span>com você desde 2015.</span>
+          <span>Peça pelo WhatsApp</span>
+          <span>ou por telefone</span>
+          <span>e receba em casa.</span>
         </h1>
         <span class="rule" aria-hidden="true"></span>
-        <ul class="perks">
-          <li class="perk">
-            <img src="assets/raio.png" alt="">
-            <p>Entrega Rápida</p>
-          </li>
-          <li class="perk">
-            <img src="assets/carrinho.png" alt="">
-            <p>Variedade de produtos</p>
-          </li>
-          <li class="perk">
-            <img src="assets/coracao.png" alt="">
-            <p>Farmacêutico todo dia</p>
-          </li>
-          <li class="perk">
-            <img src="assets/pilula.png" alt="">
-            <p>Aqui tem o seu genérico</p>
-          </li>
-        </ul>
-        <p class="lede">Peça pelo WhatsApp ou por telefone e receba em casa.</p>
         <div class="actions">
           <div class="action">
             <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">
@@ -114,10 +101,39 @@
           </div>
         </div>
         <p class="fine">Av. Gen. Osório de Paiva, 1762 – Parangaba</p>
+        <ul class="perks">
+          <li>
+            <img src="assets/raio.png" alt="">
+            <span>Entrega rápida</span>
+          </li>
+          <li>
+            <img src="assets/carrinho.png" alt="">
+            <span>Variedade de produtos</span>
+          </li>
+          <li>
+            <img src="assets/coracao.png" alt="">
+            <span>Farmacêutico todo dia</span>
+          </li>
+          <li>
+            <img src="assets/pilula.png" alt="">
+            <span>Aqui tem o seu genérico</span>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section class="block band" id="como-pedir" aria-labelledby="como-pedir-titulo">
+    <section class="block band trust" id="confianca" aria-labelledby="confianca-titulo">
+      <div class="wrap">
+        <h2 class="visually-hidden" id="confianca-titulo">Quem atende e o horário</h2>
+        <div class="trust-grid">
+          <p><strong>Farmacêutico responsável</strong><br>Felipe do Nascimento Carvalho — CRF-CE 5202</p>
+          <p><strong>Horário</strong><br>Segunda a sábado, 7h às 23h<br>Domingo e feriados, 7h às 22h</p>
+        </div>
+        <p class="since">O mesmo cuidado desde 2015.</p>
+      </div>
+    </section>
+
+    <section class="block" id="como-pedir" aria-labelledby="como-pedir-titulo">
       <div class="wrap">
         <h2 class="section-title" id="como-pedir-titulo">Peça pelo WhatsApp em três passos.</h2>
         <span class="rule" aria-hidden="true"></span>
@@ -152,18 +168,18 @@
       </div>
     </section>
 
-    <section class="block" id="entrega" aria-labelledby="entrega-titulo">
+    <section class="block band" id="entrega" aria-labelledby="entrega-titulo">
       <div class="wrap">
         <h2 class="section-title" id="entrega-titulo">Entrega em 41 bairros perto da Parangaba.</h2>
         <span class="rule" aria-hidden="true"></span>
         <p class="map-intro">Você pede pelo WhatsApp e a Carvalho Farma leva até a sua porta.</p>
-        <div id="mapa" role="region" aria-label="Mapa dos 41 bairros com entrega. No celular, mova com dois dedos."></div>
-        <p class="map-hint">No celular, use dois dedos para mover o mapa.</p>
-        <ul class="legend">
-          <li><i class="swatch swatch-yes" aria-hidden="true"></i> Entrega aqui</li>
-          <li><i class="swatch swatch-no" aria-hidden="true"></i> Fora da lista</li>
-          <li><i class="swatch swatch-pin" aria-hidden="true"></i> A loja</li>
-        </ul>
+        <form class="search" id="busca-bairro" role="search">
+          <label for="bairro-busca">Digite seu bairro</label>
+          <input id="bairro-busca" name="bairro" type="search" placeholder="Digite seu bairro" autocomplete="off" enterkeyhint="search">
+        </form>
+        <p id="bairro-status" class="visually-hidden" aria-live="polite"></p>
+        <p class="miss" id="bairro-vazio" hidden>Nenhum bairro com esse nome na lista de entrega.</p>
+        <p class="miss" id="bairro-fora" hidden>Esse bairro não está na lista de entrega. Chame no WhatsApp e confirme.</p>
         <div class="picked" id="entrega-escolhida" hidden>
           <p><strong id="picked-name"></strong></p>
           <p>Entrega aqui</p>
@@ -172,14 +188,9 @@
             Peça pelo WhatsApp
           </a>
         </div>
-        <form class="search" id="busca-bairro" role="search">
-          <label for="bairro-busca">Digite seu bairro</label>
-          <input id="bairro-busca" name="bairro" type="search" placeholder="Digite seu bairro" autocomplete="off" enterkeyhint="search">
-        </form>
-        <p id="bairro-status" class="visually-hidden" aria-live="polite"></p>
-        <p class="miss" id="bairro-vazio" hidden>Nenhum bairro com esse nome na lista de entrega.</p>
-        <p class="miss" id="bairro-fora" hidden>Esse bairro não está na lista de entrega. Chame no WhatsApp e confirme.</p>
-        <ul class="bairro-list">
+        <details class="bairro-more" id="lista-bairros">
+          <summary>Ver os 41 bairros</summary>
+          <ul class="bairro-list">
           <li><button type="button" data-bairro="Amadeu Furtado" aria-pressed="false">Amadeu Furtado</button></li>
           <li><button type="button" data-bairro="Antônio Bezerra" aria-pressed="false">Antônio Bezerra</button></li>
           <li><button type="button" data-bairro="Autran Nunes" aria-pressed="false">Autran Nunes</button></li>
@@ -221,6 +232,14 @@
           <li><button type="button" data-bairro="Serrinha" aria-pressed="false">Serrinha</button></li>
           <li><button type="button" data-bairro="Vila Peri" aria-pressed="false">Vila Peri</button></li>
           <li><button type="button" data-bairro="Vila União" aria-pressed="false">Vila União</button></li>
+          </ul>
+        </details>
+        <div id="mapa" role="region" aria-label="Mapa dos 41 bairros com entrega. No celular, mova com dois dedos."></div>
+        <p class="map-hint">No celular, use dois dedos para mover o mapa.</p>
+        <ul class="legend">
+          <li><i class="swatch swatch-yes" aria-hidden="true"></i> Entrega aqui</li>
+          <li><i class="swatch swatch-no" aria-hidden="true"></i> Fora da lista</li>
+          <li><i class="swatch swatch-pin" aria-hidden="true"></i> A loja</li>
         </ul>
         <p class="miss">Não achou seu bairro? Chame no WhatsApp e confirme.</p>
         <div class="section-actions">
@@ -232,7 +251,7 @@
       </div>
     </section>
 
-    <section class="block band" id="horario" aria-labelledby="horario-titulo">
+    <section class="block" id="horario" aria-labelledby="horario-titulo">
       <div class="wrap">
         <h2 class="section-title" id="horario-titulo">Aberta todo dia, com farmacêutico em todo o horário.</h2>
         <span class="rule" aria-hidden="true"></span>
@@ -285,15 +304,17 @@
       <div class="wrap">
         <h2 class="section-title" id="instagram-titulo">Acompanhe a Carvalho Farma no Instagram.</h2>
         <span class="rule" aria-hidden="true"></span>
-        <p class="lede">Novidades e ofertas da loja, com o farmacêutico que você encontra no balcão.</p>
-        <a class="btn btn-yellow" href="https://www.instagram.com/carvalhofarmacia/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/instagram.png" alt="">
-          Ver o Instagram → @carvalhofarmacia
-        </a>
+        <p>Novidades e ofertas da loja, com o farmacêutico que você encontra no balcão.</p>
+        <div class="section-actions">
+          <a class="btn btn-accent" href="https://www.instagram.com/carvalhofarmacia/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/instagram.png" alt="">
+            Ver o Instagram → @carvalhofarmacia
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="block" id="servicos" aria-labelledby="servicos-titulo">
+    <section class="block band" id="servicos" aria-labelledby="servicos-titulo">
       <div class="wrap">
         <h2 class="section-title" id="servicos-titulo">Serviços feitos pelo farmacêutico, aqui na loja.</h2>
         <span class="rule" aria-hidden="true"></span>
@@ -341,13 +362,13 @@
         <div class="section-actions">
           <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20um%20servi%C3%A7o." target="_blank" rel="noopener noreferrer">
             <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
-            Chame no WhatsApp para saber o horário
+            Chame no WhatsApp sobre este serviço
           </a>
         </div>
       </div>
     </section>
 
-    <section class="block band" id="duvidas" aria-labelledby="duvidas-titulo">
+    <section class="block" id="duvidas" aria-labelledby="duvidas-titulo">
       <div class="wrap">
         <h2 class="section-title" id="duvidas-titulo">Antes de pedir, vale saber.</h2>
         <span class="rule" aria-hidden="true"></span>
@@ -405,7 +426,7 @@
 
   <div class="cookie" id="cookie" hidden>
     <div class="wrap cookie-inner">
-      <p>Usamos cookies para medir os anúncios e melhorar o site. <a href="privacidade.html">Saiba mais na Política de privacidade.</a></p>
+      <p>Usamos cookies para medir os anúncios e melhorar o site. <a href="privacidade.html">Saiba mais na Política de privacidade</a>.</p>
       <div class="cookie-actions">
         <button class="btn btn-primary" id="cookie-aceitar" type="button">Aceitar</button>
         <button class="btn btn-secondary" id="cookie-recusar" type="button">Recusar</button>
@@ -416,7 +437,7 @@
   <div class="dock" role="region" aria-label="Contato rápido">
     <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido%20pelo%20WhatsApp." target="_blank" rel="noopener noreferrer">
       <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
-      WhatsApp
+      Peça pelo WhatsApp
     </a>
     <a class="btn btn-secondary" href="tel:+558534845017">Ligar</a>
   </div>

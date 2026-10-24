@@ -92,7 +92,7 @@
 
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
-      selectName(button.getAttribute("data-bairro"));
+      selectName(button.getAttribute("data-bairro"), true);
     });
   });
 
@@ -119,7 +119,7 @@
     };
   }
 
-  function selectName(nome) {
+  function selectName(nome, scroll) {
     buttons.forEach(function (button) {
       button.setAttribute("aria-pressed", button.getAttribute("data-bairro") === nome ? "true" : "false");
     });
@@ -137,6 +137,11 @@
     }
     if (statusEl) statusEl.textContent = nome + ". Entrega aqui.";
 
+    if (scroll && picked) {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      picked.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" });
+    }
+
     if (!layer) {
       selected = null;
       return;
@@ -152,7 +157,7 @@
       '<p>Entrega aqui</p>' +
       '<a class="btn btn-primary" href="' + href + '" target="_blank" rel="noopener noreferrer">' +
       '<svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>' +
-      'Peça pelo WhatsApp</a>',
+      'Pedir no WhatsApp</a>',
       { className: "brand-popup", maxWidth: 260 }
     ).openPopup();
   }
@@ -160,13 +165,28 @@
   function filterList() {
     var query = normalize(input.value);
     var shown = 0;
+    var exact = null;
     buttons.forEach(function (button) {
-      var hay = normalize(button.getAttribute("data-bairro") + " " + (button.getAttribute("data-alias") || ""));
-      var match = !query || hay.indexOf(query) !== -1;
+      var name = normalize(button.getAttribute("data-bairro"));
+      var alias = normalize(button.getAttribute("data-alias") || "");
+      var match = !query || (name + " " + alias).indexOf(query) !== -1;
       var item = button.closest("li");
       if (item) item.hidden = !match;
-      if (match) shown += 1;
+      if (match) {
+        shown += 1;
+        if (query && (name === query || alias === query)) exact = button;
+      }
     });
+
+    var details = document.getElementById("lista-bairros");
+    if (exact) {
+      if (details) details.open = false;
+      if (!pickedName || pickedName.textContent !== exact.getAttribute("data-bairro")) {
+        selectName(exact.getAttribute("data-bairro"), true);
+      }
+    } else if (details) {
+      details.open = query.length > 0 && shown > 0;
+    }
 
     var outside = false;
     if (query.length >= 3 && shown === 0) {
@@ -179,6 +199,7 @@
     if (statusEl) {
       if (!query) statusEl.textContent = "";
       else if (outside) statusEl.textContent = "Esse bairro não está na lista de entrega.";
+      else if (exact) statusEl.textContent = exact.getAttribute("data-bairro") + ". Entrega aqui.";
       else if (shown === 1) statusEl.textContent = "1 bairro encontrado.";
       else statusEl.textContent = shown + " bairros encontrados.";
     }
