@@ -20,13 +20,26 @@
 
   var map = L.map(mapEl, {
     scrollWheelZoom: false,
-    zoomControl: true
+    zoomControl: true,
+    zoomSnap: 0.25
   });
 
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · Bairros: Prefeitura de Fortaleza',
-    maxZoom: 19
-  }).addTo(map);
+  map.createPane("fora").style.zIndex = 380;
+  map.createPane("entrega").style.zIndex = 400;
+  map.getPane("entrega").style.opacity = "0.8";
+  map.createPane("rotulos").style.zIndex = 450;
+  map.getPane("rotulos").style.pointerEvents = "none";
+
+  var ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/";
+  var tileOptions = { maxNativeZoom: 16, maxZoom: 19 };
+
+  L.tileLayer(ESRI + "World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", L.extend({
+    attribution: 'Mapa &copy; <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · Bairros: Prefeitura de Fortaleza'
+  }, tileOptions)).addTo(map);
+
+  L.tileLayer(ESRI + "World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}", L.extend({
+    pane: "rotulos"
+  }, tileOptions)).addTo(map);
 
   bindTwoFinger(map);
 
@@ -61,29 +74,48 @@
       return response.json();
     })
     .then(function (data) {
-      var delivery = [];
+      var isDelivery = function (feature) { return feature.properties.entrega; };
+
       L.geoJSON(data, {
+        pane: "fora",
+        interactive: false,
+        filter: function (feature) { return !isDelivery(feature); },
+        style: styleOf,
+        onEachFeature: function (feature) { otherNames.push(feature.properties.nome); }
+      }).addTo(map);
+
+      // The fill must stay opaque: it hides the shared inner edges of this
+      // outline, leaving only the outer contour. Translucency comes from the pane.
+      L.geoJSON(data, {
+        pane: "entrega",
+        interactive: false,
+        filter: isDelivery,
+        style: { color: "#003A70", weight: 5, fill: false, lineJoin: "round" }
+      }).addTo(map);
+
+      var delivery = L.geoJSON(data, {
+        pane: "entrega",
+        filter: isDelivery,
         style: styleOf,
         onEachFeature: function (feature, layer) {
           var nome = feature.properties.nome;
           byName.set(normalize(nome), layer);
-          if (feature.properties.entrega) {
-            delivery.push(layer);
-            layer.on("click", function () { selectName(nome); });
-            layer.on("mouseover", function () {
-              if (selected !== layer) layer.setStyle(paint(true, true));
-            });
-            layer.on("mouseout", function () {
-              if (selected !== layer) layer.setStyle(styleOf(feature));
-            });
-          } else {
-            otherNames.push(nome);
-          }
+          layer.on("click", function () { selectName(nome); });
+          layer.on("mouseover", function () {
+            if (selected === layer) return;
+            layer.setStyle(paint(true, true));
+            layer.bringToFront();
+          });
+          layer.on("mouseout", function () {
+            if (selected === layer) return;
+            layer.setStyle(styleOf(feature));
+            if (selected) selected.bringToFront();
+          });
         }
       }).addTo(map);
 
-      if (delivery.length) {
-        map.fitBounds(L.featureGroup(delivery).getBounds(), { padding: [18, 18] });
+      if (delivery.getLayers().length) {
+        map.fitBounds(delivery.getBounds(), { padding: [18, 18] });
       }
       pin.setZIndexOffset(1000);
     })
@@ -106,17 +138,17 @@
   function paint(delivery, hover) {
     if (delivery) {
       return {
-        color: "#003A70",
-        weight: hover ? 2.6 : 1.5,
-        fillColor: "#FFC107",
-        fillOpacity: hover ? 0.92 : 0.72
+        color: hover ? "#003A70" : "#E0A400",
+        weight: hover ? 2.5 : 0.8,
+        fillColor: hover ? "#FFB300" : "#FFC107",
+        fillOpacity: 1
       };
     }
     return {
-      color: "#c8c1b3",
-      weight: 0.7,
-      fillColor: "#e7e2d6",
-      fillOpacity: 0.92
+      color: "#b9b1a1",
+      weight: 0.6,
+      fillColor: "#efe9dc",
+      fillOpacity: 0.4
     };
   }
 
