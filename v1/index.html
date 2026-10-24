@@ -9,10 +9,9 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="../review.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,12 +57,6 @@
   </script>
 </head>
 <body class="has-dock">
-  <div class="review-bar" role="navigation" aria-label="Versões para revisão">
-    <span>Revisão</span>
-    <a href="index.html" aria-current="page">v1 original</a>
-    <a href="../v1-edited/index.html">v1 editada</a>
-  </div>
-
   <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 
   <header class="site-header">
@@ -82,13 +75,12 @@
         <h1 id="titulo">
           <span>Novo nome.</span>
           <span>O mesmo cuidado</span>
-          <span>com você desde 2015.</span>
+          <span>com você <strong>desde 2015.</strong></span>
         </h1>
-        <span class="rule" aria-hidden="true"></span>
         <ul class="perks">
           <li>
             <img src="../assets/raio.png" alt="">
-            <span>Entrega rápida</span>
+            <span>Entrega Rápida</span>
           </li>
           <li>
             <img src="../assets/carrinho.png" alt="">
@@ -106,7 +98,7 @@
         <p class="lede">Peça pelo WhatsApp ou por telefone e receba em casa.</p>
         <div class="actions">
           <div class="action">
-            <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-primary btn-lg" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">
               <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
               Peça pelo WhatsApp
             </a>
@@ -130,24 +122,39 @@
         <span class="rule" aria-hidden="true"></span>
         <ol class="steps">
           <li>
-            <div class="step-num">1</div>
+            <div class="step-head">
+              <img src="../assets/telefone.png" alt="">
+              <span class="step-num">1</span>
+            </div>
             <h3>Chame no WhatsApp</h3>
             <p><a href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site.%20Quero%20pedir%3A" target="_blank" rel="noopener noreferrer">(85) 99703-9895</a>.</p>
           </li>
           <li>
-            <div class="step-num">2</div>
+            <div class="step-head">
+              <img src="../assets/pilula.png" alt="">
+              <span class="step-num">2</span>
+            </div>
             <h3>Diga o que precisa</h3>
             <p>Pode ser o nome do produto ou a foto da embalagem.</p>
           </li>
           <li>
-            <div class="step-num">3</div>
+            <div class="step-head">
+              <img src="../assets/localizacao.png" alt="">
+              <span class="step-num">3</span>
+            </div>
             <h3>Confirme o endereço e a forma de pagamento</h3>
             <p>A entrega vai até você.</p>
           </li>
         </ol>
-        <p class="pay"><strong>Pagamento:</strong> cartão de crédito e débito de todas as bandeiras, Pix e dinheiro.</p>
-        <div class="note">
-          <p><strong>Medicamento com receita:</strong> mande a foto da receita pelo WhatsApp. A receita original é conferida na entrega.</p>
+        <div class="info-row">
+          <div class="info-card">
+            <img src="../assets/carrinho.png" alt="">
+            <p><strong>Pagamento:</strong> cartão de crédito e débito de todas as bandeiras, Pix e dinheiro.</p>
+          </div>
+          <div class="info-card">
+            <img src="../assets/receita.png" alt="">
+            <p><strong>Medicamento com receita:</strong> mande a foto da receita pelo WhatsApp. A receita original é conferida na entrega.</p>
+          </div>
         </div>
         <div class="section-actions">
           <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site.%20Quero%20pedir%3A" target="_blank" rel="noopener noreferrer">
@@ -169,7 +176,7 @@
         <ul class="legend">
           <li><i class="swatch swatch-yes" aria-hidden="true"></i> Entrega aqui</li>
           <li><i class="swatch swatch-no" aria-hidden="true"></i> Fora da lista</li>
-          <li><i class="swatch swatch-pin" aria-hidden="true"></i> A loja</li>
+          <li><img class="legend-pin" src="../assets/localizacao.png" alt=""> A loja</li>
         </ul>
 
         <form class="search" id="busca-bairro" role="search">
@@ -258,7 +265,7 @@
               </p>
             </div>
             <table class="hours">
-              <caption>Horário</caption>
+              <caption><img src="../assets/relogio.png" alt=""> Horário</caption>
               <tbody>
                 <tr>
                   <th scope="row">Segunda a sábado</th>
@@ -283,7 +290,10 @@
               <iframe class="map-embed" title="Mapa da Carvalho Farma na Av. Gen. Osório de Paiva, 1762" tabindex="-1" aria-hidden="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Av.%20Gen.%20Os%C3%B3rio%20de%20Paiva%2C%201762%2C%20Parangaba%2C%20Fortaleza&amp;hl=pt-BR&amp;z=16&amp;output=embed"></iframe>
               <a class="map-open" tabindex="-1" aria-hidden="true" href="https://www.google.com/maps/dir/?api=1&amp;destination=Av.%20Gen.%20Os%C3%B3rio%20de%20Paiva%2C%201762%2C%20Parangaba%2C%20Fortaleza%20-%20CE%2C%2060720-015" target="_blank" rel="noopener noreferrer">Traçar rota até a loja</a>
             </div>
-            <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Av.%20Gen.%20Os%C3%B3rio%20de%20Paiva%2C%201762%2C%20Parangaba%2C%20Fortaleza%20-%20CE%2C%2060720-015" target="_blank" rel="noopener noreferrer">Traçar rota</a>
+            <a class="btn btn-accent btn-lg" href="https://www.google.com/maps/dir/?api=1&amp;destination=Av.%20Gen.%20Os%C3%B3rio%20de%20Paiva%2C%201762%2C%20Parangaba%2C%20Fortaleza%20-%20CE%2C%2060720-015" target="_blank" rel="noopener noreferrer">
+              <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.6A2.6 2.6 0 1 1 12 6.4a2.6 2.6 0 0 1 0 5.2z"/></svg>
+              Traçar rota
+            </a>
           </div>
         </div>
       </div>
@@ -295,9 +305,9 @@
         <span class="rule" aria-hidden="true"></span>
         <p>Novidades e ofertas da loja, com o farmacêutico que você encontra no balcão.</p>
         <div class="section-actions">
-          <a class="btn btn-accent" href="https://www.instagram.com/carvalhofarmacia/" target="_blank" rel="noopener noreferrer">
+          <a class="btn btn-accent btn-lg" href="https://www.instagram.com/carvalhofarmacia/" target="_blank" rel="noopener noreferrer">
             <img src="../assets/instagram.png" alt="">
-            Ver o Instagram → @carvalhofarmacia
+            <span class="btn-stack"><span>Ver o Instagram →</span> <span>@carvalhofarmacia</span></span>
           </a>
         </div>
       </div>
@@ -338,8 +348,8 @@
           </li>
           <li>
             <svg class="ear-icon" viewBox="0 0 64 64" aria-hidden="true">
-              <path fill="#003772" d="M34 6c-9.5.4-17 7.6-17 18.2 0 6.2 2.2 10.6 4.6 14.2 1.6 2.4 2.6 4.6 2.2 7.6 6.2-1.2 10.6-6 12-11.4.6 5.4 5.2 10.2 11.6 11.6-.6-3.6.4-6.4 2.2-9 2.6-3.8 5.2-8 5.2-13.4C55 13.2 46.2 5.4 34 6zm1.2 10.2c5.4.2 9.2 4.4 9.4 10.2.2 4.2-1.4 7.6-3.4 10.2-2.6-1.8-4.4-5-4.6-8.8.2-4.2 2.2-7.6 5.8-9.2-2-.8-4.4-1.6-7.2-2.4z"/>
-              <circle cx="42" cy="28" r="3.2" fill="#FFC200"/>
+              <path fill="#003A70" d="M10 22c10-13 34-13 44 0-10 13-34 13-44 0z"/>
+              <path fill="#FFC107" d="M10 42c10-13 34-13 44 0-10 13-34 13-44 0z"/>
             </svg>
             <div>
               <h3>Perfuração de lóbulo</h3>
@@ -351,7 +361,7 @@
         <div class="section-actions">
           <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20um%20servi%C3%A7o." target="_blank" rel="noopener noreferrer">
             <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
-            Chame no WhatsApp para saber o horário
+            <span class="btn-stack"><span>Chame no WhatsApp</span> <span>para saber o horário</span></span>
           </a>
         </div>
       </div>

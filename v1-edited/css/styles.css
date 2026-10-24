@@ -125,6 +125,8 @@ h3 {
   justify-self: center;
   display: block;
   width: min(440px, calc(100% - 7.25rem));
+  /* Na arte, o centro do nome fica em 62,78% da largura. O símbolo fica à esquerda desse eixo. */
+  transform: translateX(calc(50% - 62.78%));
 }
 
 .logo {
@@ -180,10 +182,6 @@ h3 {
   margin-bottom: 0.35rem;
 }
 
-.hero .rule {
-  margin: 0.35rem auto 0.85rem;
-}
-
 .hero .actions {
   gap: 0.55rem 1.25rem;
 }
@@ -198,27 +196,32 @@ h3 {
 
 .perks {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.55rem 0.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   list-style: none;
   padding: 0;
-  margin: 0.7rem auto 0;
-  max-width: 26rem;
+  margin: 1.15rem auto 1.35rem;
+  max-width: 46rem;
 }
 
 .perks li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.55rem;
+  padding: 0.15rem 0.45rem;
   font-weight: 700;
-  font-size: 0.8125rem;
-  line-height: 1.15;
+  font-size: clamp(0.68rem, 2.1vw, 0.95rem);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.perks li + li {
+  border-left: 1px solid rgba(0, 55, 114, 0.28);
 }
 
 .perks img {
-  width: 34px;
-  height: 34px;
+  width: clamp(36px, 8vw, 56px);
+  height: clamp(36px, 8vw, 56px);
   object-fit: contain;
 }
 
@@ -1018,12 +1021,6 @@ body.has-dock .cookie {
 
   .footer-leaf {
     width: 250px;
-  }
-
-  .perks {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 52rem;
-    gap: 1rem;
   }
 }
 

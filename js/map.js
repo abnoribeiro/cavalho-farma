@@ -31,15 +31,16 @@
   bindTwoFinger(map);
 
   var pin = L.marker([STORE.lat, STORE.lng], {
-    icon: L.divIcon({
-      className: "store-pin-wrap",
-      html: '<div class="store-pin"></div>',
-      iconSize: [28, 28],
-      iconAnchor: [14, 26],
-      popupAnchor: [0, -24]
+    icon: L.icon({
+      iconUrl: new URL("../assets/localizacao.png", window.location.href).href,
+      className: "store-pin-img",
+      iconSize: [34, 44],
+      iconAnchor: [17, 44],
+      popupAnchor: [0, -40]
     }),
     zIndexOffset: 800,
     title: "Carvalho Farma",
+    alt: "Carvalho Farma",
     keyboard: true
   }).addTo(map);
 
@@ -105,9 +106,9 @@
   function paint(delivery, hover) {
     if (delivery) {
       return {
-        color: "#003772",
+        color: "#003A70",
         weight: hover ? 2.6 : 1.5,
-        fillColor: "#FFC200",
+        fillColor: "#FFC107",
         fillOpacity: hover ? 0.92 : 0.72
       };
     }
