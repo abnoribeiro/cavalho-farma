@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carvalho Farma — Saúde para seguir em frente</title>
+  <meta name="description" content="Farmácia na Parangaba, Fortaleza. Peça pelo WhatsApp e receba em casa. Aberta todo dia, com farmacêutico em todo o horário.">
+  <meta name="theme-color" content="#FFF8EA">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Pharmacy",
+    "name": "Carvalho Farma",
+    "slogan": "Saúde para seguir em frente",
+    "image": "assets/logo-horizontal.png",
+    "telephone": "+558534845017",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Gen. Osório de Paiva, 1762",
+      "addressLocality": "Fortaleza",
+      "addressRegion": "CE",
+      "postalCode": "60720-015",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -3.782489,
+      "longitude": -38.5775907
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "07:00",
+        "closes": "23:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "07:00",
+        "closes": "22:00"
+      }
+    ],
+    "employee": {
+      "@type": "Person",
+      "name": "Felipe do Nascimento Carvalho",
+      "identifier": "CRF-CE 5202"
+    },
+    "sameAs": "https://www.instagram.com/carvalhofarmacia/"
+  }
+  </script>
+</head>
+<body class="has-dock">
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="site-header">
+    <a class="ig-link" href="https://www.instagram.com/carvalhofarmacia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Carvalho Farma, @carvalhofarmacia">
+      <img src="assets/instagram.png" alt="">
+    </a>
+    <a class="logo-link" href="#conteudo">
+      <img class="logo" src="assets/logo-horizontal.png" width="460" height="123" alt="Carvalho Farma">
+    </a>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="titulo">
+      <img class="hero-leaf" src="assets/folha.png" alt="">
+      <div class="wrap">
+        <h1 id="titulo">
+          <span>Novo nome.</span>
+          <span>O mesmo cuidado</span>
+          <span>com você desde 2015.</span>
+        </h1>
+        <span class="rule" aria-hidden="true"></span>
+        <ul class="perks">
+          <li class="perk">
+            <img src="assets/raio.png" alt="">
+            <p>Entrega Rápida</p>
+          </li>
+          <li class="perk">
+            <img src="assets/carrinho.png" alt="">
+            <p>Variedade de produtos</p>
+          </li>
+          <li class="perk">
+            <img src="assets/coracao.png" alt="">
+            <p>Farmacêutico todo dia</p>
+          </li>
+          <li class="perk">
+            <img src="assets/pilula.png" alt="">
+            <p>Aqui tem o seu genérico</p>
+          </li>
+        </ul>
+        <p class="lede">Peça pelo WhatsApp ou por telefone e receba em casa.</p>
+        <div class="actions">
+          <div class="action">
+            <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">
+              <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
+              Peça pelo WhatsApp
+            </a>
+            <p class="action-number">(85) 99703-9895</p>
+          </div>
+          <div class="action">
+            <a class="btn btn-secondary" href="tel:+558534845017">
+              <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.7 3.2c.4-.4 1-.5 1.5-.3l2.1.9c.5.2.8.7.7 1.3l-.4 2.3c-.1.4-.4.8-.8.9l-1.4.5a12.2 12.2 0 0 0 6.2 6.2l.5-1.4c.2-.4.5-.7.9-.8l2.3-.4c.6-.1 1.1.2 1.3.7l.9 2.1c.2.5.1 1.1-.3 1.5l-1.5 1.5c-.4.4-1 .6-1.6.5C9.8 19.8 4.2 14.2 3.1 6.3c-.1-.6.1-1.2.5-1.6l3.1-1.5z"/></svg>
+              Ligar
+            </a>
+            <p class="action-number">(85) 3484-5017</p>
+          </div>
+        </div>
+        <p class="fine">Av. Gen. Osório de Paiva, 1762 – Parangaba</p>
+      </div>
+    </section>
+
+    <section class="block band" id="como-pedir" aria-labelledby="como-pedir-titulo">
+      <div class="wrap">
+        <h2 class="section-title" id="como-pedir-titulo">Peça pelo WhatsApp em três passos.</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <ol class="steps">
+          <li>
+            <div class="step-num">1</div>
+            <h3>Chame no WhatsApp</h3>
+            <p><a href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site.%20Quero%20pedir%3A" target="_blank" rel="noopener noreferrer">(85) 99703-9895</a>.</p>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <h3>Diga o que precisa</h3>
+            <p>Pode ser o nome do produto ou a foto da embalagem.</p>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <h3>Confirme o endereço e a forma de pagamento</h3>
+            <p>A entrega vai até você.</p>
+          </li>
+        </ol>
+        <p class="pay"><strong>Pagamento:</strong> cartão de crédito e débito de todas as bandeiras, Pix e dinheiro.</p>
+        <div class="note">
+          <p><strong>Medicamento com receita:</strong> mande a foto da receita pelo WhatsApp. A receita original é conferida na entrega.</p>
+        </div>
+        <div class="section-actions">
+          <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site.%20Quero%20pedir%3A" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
+            Peça pelo WhatsApp
+          </a>
+          <a class="btn btn-secondary" href="tel:+558534845017">Prefere ligar? (85) 3484-5017</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="entrega" aria-labelledby="entrega-titulo">
+      <div class="wrap">
+        <h2 class="section-title" id="entrega-titulo">Entrega em 41 bairros perto da Parangaba.</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="map-intro">Você pede pelo WhatsApp e a Carvalho Farma leva até a sua porta.</p>
+        <div id="mapa" role="region" aria-label="Mapa dos 41 bairros com entrega. No celular, mova com dois dedos."></div>
+        <p class="map-hint">No celular, use dois dedos para mover o mapa.</p>
+        <ul class="legend">
+          <li><i class="swatch swatch-yes" aria-hidden="true"></i> Entrega aqui</li>
+          <li><i class="swatch swatch-no" aria-hidden="true"></i> Fora da lista</li>
+          <li><i class="swatch swatch-pin" aria-hidden="true"></i> A loja</li>
+        </ul>
+        <div class="picked" id="entrega-escolhida" hidden>
+          <p><strong id="picked-name"></strong></p>
+          <p>Entrega aqui</p>
+          <a class="btn btn-primary" id="picked-wa" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site.%20Voc%C3%AAs%20entregam%20no%20meu%20bairro%3F" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
+            Peça pelo WhatsApp
+          </a>
+        </div>
+        <form class="search" id="busca-bairro" role="search">
+          <label for="bairro-busca">Digite seu bairro</label>
+          <input id="bairro-busca" name="bairro" type="search" placeholder="Digite seu bairro" autocomplete="off" enterkeyhint="search">
+        </form>
+        <p id="bairro-status" class="visually-hidden" aria-live="polite"></p>
+        <p class="miss" id="bairro-vazio" hidden>Nenhum bairro com esse nome na lista de entrega.</p>
+        <p class="miss" id="bairro-fora" hidden>Esse bairro não está na lista de entrega. Chame no WhatsApp e confirme.</p>
+        <ul class="bairro-list">
+          <li><button type="button" data-bairro="Amadeu Furtado" aria-pressed="false">Amadeu Furtado</button></li>
+          <li><button type="button" data-bairro="Antônio Bezerra" aria-pressed="false">Antônio Bezerra</button></li>
+          <li><button type="button" data-bairro="Autran Nunes" aria-pressed="false">Autran Nunes</button></li>
+          <li><button type="button" data-bairro="Bela Vista" aria-pressed="false">Bela Vista</button></li>
+          <li><button type="button" data-bairro="Bom Futuro" aria-pressed="false">Bom Futuro</button></li>
+          <li><button type="button" data-bairro="Bom Jardim" aria-pressed="false">Bom Jardim</button></li>
+          <li><button type="button" data-bairro="Bonsucesso" aria-pressed="false">Bonsucesso</button></li>
+          <li><button type="button" data-bairro="Canindezinho" aria-pressed="false">Canindezinho</button></li>
+          <li><button type="button" data-bairro="Conjunto Ceará I" aria-pressed="false">Conjunto Ceará I</button></li>
+          <li><button type="button" data-bairro="Conjunto Ceará II" aria-pressed="false">Conjunto Ceará II</button></li>
+          <li><button type="button" data-bairro="Conjunto Esperança" aria-pressed="false">Conjunto Esperança</button></li>
+          <li><button type="button" data-bairro="Couto Fernandes" aria-pressed="false">Couto Fernandes</button></li>
+          <li><button type="button" data-bairro="Damas" aria-pressed="false">Damas</button></li>
+          <li><button type="button" data-bairro="Demócrito Rocha" aria-pressed="false">Demócrito Rocha</button></li>
+          <li><button type="button" data-bairro="Dendê" aria-pressed="false">Dendê</button></li>
+          <li><button type="button" data-bairro="Genibaú" data-alias="Parque Genibaú" aria-pressed="false">Genibaú</button></li>
+          <li><button type="button" data-bairro="Granja Lisboa" aria-pressed="false">Granja Lisboa</button></li>
+          <li><button type="button" data-bairro="Henrique Jorge" aria-pressed="false">Henrique Jorge</button></li>
+          <li><button type="button" data-bairro="Itaoca" aria-pressed="false">Itaoca</button></li>
+          <li><button type="button" data-bairro="Itaperi" aria-pressed="false">Itaperi</button></li>
+          <li><button type="button" data-bairro="Jardim Cearense" aria-pressed="false">Jardim Cearense</button></li>
+          <li><button type="button" data-bairro="João XXIII" aria-pressed="false">João XXIII</button></li>
+          <li><button type="button" data-bairro="Jóquei Clube" aria-pressed="false">Jóquei Clube</button></li>
+          <li><button type="button" data-bairro="Manoel Sátiro" aria-pressed="false">Manoel Sátiro</button></li>
+          <li><button type="button" data-bairro="Maraponga" aria-pressed="false">Maraponga</button></li>
+          <li><button type="button" data-bairro="Mondubim" aria-pressed="false">Mondubim</button></li>
+          <li><button type="button" data-bairro="Montese" aria-pressed="false">Montese</button></li>
+          <li><button type="button" data-bairro="Novo Mondubim" aria-pressed="false">Novo Mondubim</button></li>
+          <li><button type="button" data-bairro="Pan-Americano" aria-pressed="false">Pan-Americano</button></li>
+          <li><button type="button" data-bairro="Parangaba" aria-pressed="false">Parangaba</button></li>
+          <li><button type="button" data-bairro="Parque Dois Irmãos" aria-pressed="false">Parque Dois Irmãos</button></li>
+          <li><button type="button" data-bairro="Parque Santa Rosa" aria-pressed="false">Parque Santa Rosa</button></li>
+          <li><button type="button" data-bairro="Parque São José" aria-pressed="false">Parque São José</button></li>
+          <li><button type="button" data-bairro="Parreão" aria-pressed="false">Parreão</button></li>
+          <li><button type="button" data-bairro="Pici" aria-pressed="false">Pici</button></li>
+          <li><button type="button" data-bairro="Presidente Kennedy" aria-pressed="false">Presidente Kennedy</button></li>
+          <li><button type="button" data-bairro="Rachel de Queiroz" aria-pressed="false">Rachel de Queiroz</button></li>
+          <li><button type="button" data-bairro="Rodolfo Teófilo" aria-pressed="false">Rodolfo Teófilo</button></li>
+          <li><button type="button" data-bairro="Serrinha" aria-pressed="false">Serrinha</button></li>
+          <li><button type="button" data-bairro="Vila Peri" aria-pressed="false">Vila Peri</button></li>
+          <li><button type="button" data-bairro="Vila União" aria-pressed="false">Vila União</button></li>
+        </ul>
+        <p class="miss">Não achou seu bairro? Chame no WhatsApp e confirme.</p>
+        <div class="section-actions">
+          <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site.%20Voc%C3%AAs%20entregam%20no%20meu%20bairro%3F" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
+            Peça pelo WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block band" id="horario" aria-labelledby="horario-titulo">
+      <div class="wrap">
+        <h2 class="section-title" id="horario-titulo">Aberta todo dia, com farmacêutico em todo o horário.</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <div class="location-grid">
+          <div>
+            <div class="address-line">
+              <img src="assets/localizacao.png" alt="">
+              <p>Av. Gen. Osório de Paiva, 1762 – Parangaba, Fortaleza/CE · CEP 60720-015</p>
+            </div>
+            <div class="address-line">
+              <img src="assets/telefone.png" alt="">
+              <p>
+                WhatsApp <a href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">(85) 99703-9895</a><br>
+                Telefone <a href="tel:+558534845017">(85) 3484-5017</a>
+              </p>
+            </div>
+            <table class="hours">
+              <caption>Horário</caption>
+              <tbody>
+                <tr>
+                  <th scope="row">Segunda a sábado</th>
+                  <td>7h às 23h</td>
+                </tr>
+                <tr>
+                  <th scope="row">Domingo e feriados</th>
+                  <td>7h às 22h</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="actions location-actions">
+              <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">
+                <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
+                Peça pelo WhatsApp
+              </a>
+              <a class="btn btn-secondary" href="tel:+558534845017">Ligar</a>
+            </div>
+          </div>
+          <div class="location-map">
+            <div class="map-frame">
+              <iframe class="map-embed" title="Mapa da Carvalho Farma na Av. Gen. Osório de Paiva, 1762" tabindex="-1" aria-hidden="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Av.%20Gen.%20Os%C3%B3rio%20de%20Paiva%2C%201762%2C%20Parangaba%2C%20Fortaleza&amp;hl=pt-BR&amp;z=16&amp;output=embed"></iframe>
+              <a class="map-open" tabindex="-1" aria-hidden="true" href="https://www.google.com/maps/dir/?api=1&amp;destination=Av.%20Gen.%20Os%C3%B3rio%20de%20Paiva%2C%201762%2C%20Parangaba%2C%20Fortaleza%20-%20CE%2C%2060720-015" target="_blank" rel="noopener noreferrer">Traçar rota até a loja</a>
+            </div>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Av.%20Gen.%20Os%C3%B3rio%20de%20Paiva%2C%201762%2C%20Parangaba%2C%20Fortaleza%20-%20CE%2C%2060720-015" target="_blank" rel="noopener noreferrer">Traçar rota</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block instagram" id="instagram" aria-labelledby="instagram-titulo">
+      <div class="wrap">
+        <h2 class="section-title" id="instagram-titulo">Acompanhe a Carvalho Farma no Instagram.</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="lede">Novidades e ofertas da loja, com o farmacêutico que você encontra no balcão.</p>
+        <a class="btn btn-yellow" href="https://www.instagram.com/carvalhofarmacia/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/instagram.png" alt="">
+          Ver o Instagram → @carvalhofarmacia
+        </a>
+      </div>
+    </section>
+
+    <section class="block" id="servicos" aria-labelledby="servicos-titulo">
+      <div class="wrap">
+        <h2 class="section-title" id="servicos-titulo">Serviços feitos pelo farmacêutico, aqui na loja.</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <ul class="services">
+          <li>
+            <img src="assets/coracao.png" alt="">
+            <div>
+              <h3>Aferição de pressão</h3>
+              <p>Feita pelo farmacêutico, na hora.</p>
+            </div>
+          </li>
+          <li>
+            <img src="assets/receita.png" alt="">
+            <div>
+              <h3>Teste de glicemia</h3>
+              <p>Resultado em poucos minutos, feito pelo farmacêutico.</p>
+            </div>
+          </li>
+          <li>
+            <img src="assets/seringa.png" alt="">
+            <div>
+              <h3>Aplicação de injetável</h3>
+              <p>Traga o medicamento e a receita.</p>
+            </div>
+          </li>
+          <li>
+            <img src="assets/raio.png" alt="">
+            <div>
+              <h3>Testes rápidos</h3>
+              <p>Feitos pelo farmacêutico, na loja. Pergunte quais estão disponíveis.</p>
+            </div>
+          </li>
+          <li>
+            <svg class="ear-icon" viewBox="0 0 64 64" aria-hidden="true">
+              <path fill="#003772" d="M34 6c-9.5.4-17 7.6-17 18.2 0 6.2 2.2 10.6 4.6 14.2 1.6 2.4 2.6 4.6 2.2 7.6 6.2-1.2 10.6-6 12-11.4.6 5.4 5.2 10.2 11.6 11.6-.6-3.6.4-6.4 2.2-9 2.6-3.8 5.2-8 5.2-13.4C55 13.2 46.2 5.4 34 6zm1.2 10.2c5.4.2 9.2 4.4 9.4 10.2.2 4.2-1.4 7.6-3.4 10.2-2.6-1.8-4.4-5-4.6-8.8.2-4.2 2.2-7.6 5.8-9.2-2-.8-4.4-1.6-7.2-2.4z"/>
+              <circle cx="42" cy="28" r="3.2" fill="#FFC200"/>
+            </svg>
+            <div>
+              <h3>Perfuração de lóbulo</h3>
+              <p>Furo de orelha feito na loja.</p>
+            </div>
+          </li>
+        </ul>
+        <p class="price-note">O valor de cada serviço a gente informa no WhatsApp.</p>
+        <div class="section-actions">
+          <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20um%20servi%C3%A7o." target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
+            Chame no WhatsApp para saber o horário
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block band" id="duvidas" aria-labelledby="duvidas-titulo">
+      <div class="wrap">
+        <h2 class="section-title" id="duvidas-titulo">Antes de pedir, vale saber.</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <div class="faq">
+          <details class="faq-item">
+            <summary>Quais as formas de pagamento?</summary>
+            <p>Cartão de crédito e débito de todas as bandeiras, Pix e dinheiro.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Tem programa de fidelidade?</summary>
+            <p>Tem. Informe seu CPF na compra para participar.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Vocês têm genérico?</summary>
+            <p>A loja trabalha com referência, genérico e similar. Pergunte pelo WhatsApp se o que você precisa está em estoque.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Posso pedir para outra pessoa receber?</summary>
+            <p>Pode. Informe o nome e o endereço de quem vai receber.</p>
+          </details>
+          <details class="faq-item">
+            <summary>A loja abre em feriado?</summary>
+            <p>Abre, das 7h às 22h.</p>
+          </details>
+        </div>
+        <div class="section-actions faq-actions">
+          <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
+            Chame no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img class="footer-leaf" src="assets/folha.png" alt="">
+    <div class="wrap footer-grid">
+      <div>
+        <img class="footer-logo" src="assets/logo-horizontal-creme.png" width="260" height="68" alt="">
+        <p class="footer-brand">Carvalho Farma — <span class="slogan">Saúde para seguir em frente</span></p>
+      </div>
+      <div>
+        <!-- CNPJ e autorização AFE/Anvisa ainda não estão na ficha da loja -->
+        <p>F do N Carvalho Comércio Farmacêutico Ltda</p>
+        <p>Av. Gen. Osório de Paiva, 1762 – Parangaba, Fortaleza/CE · CEP 60720-015</p>
+        <p>WhatsApp <a href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">(85) 99703-9895</a> · Telefone <a href="tel:+558534845017">(85) 3484-5017</a></p>
+        <p>Segunda a sábado, 7h às 23h · Domingo e feriados, 7h às 22h</p>
+        <p>Farmacêutico responsável: Felipe do Nascimento Carvalho — CRF-CE 5202</p>
+        <p>Licença sanitária: LS00048427/2026</p>
+        <p><a href="https://www.instagram.com/carvalhofarmacia/" target="_blank" rel="noopener noreferrer">Instagram @carvalhofarmacia</a> · <a href="privacidade.html">Política de privacidade</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie" id="cookie" hidden>
+    <div class="wrap cookie-inner">
+      <p>Usamos cookies para medir os anúncios e melhorar o site. <a href="privacidade.html">Saiba mais na Política de privacidade.</a></p>
+      <div class="cookie-actions">
+        <button class="btn btn-primary" id="cookie-aceitar" type="button">Aceitar</button>
+        <button class="btn btn-secondary" id="cookie-recusar" type="button">Recusar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dock" role="region" aria-label="Contato rápido">
+    <a class="btn btn-primary" href="https://wa.me/5585997039895?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido%20pelo%20WhatsApp." target="_blank" rel="noopener noreferrer">
+      <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>
+      WhatsApp
+    </a>
+    <a class="btn btn-secondary" href="tel:+558534845017">Ligar</a>
+  </div>
+
+  <script src="js/site.js" defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <script src="js/map.js" defer></script>
+</body>
+</html>
