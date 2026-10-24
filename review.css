@@ -1,0 +1,39 @@
+.review-bar {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem 0.6rem;
+  padding: 0.45rem 0.75rem;
+  background: #1c1c1c;
+  color: #fff8ea;
+  font-size: 0.875rem;
+}
+
+.review-bar span {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.review-bar a {
+  color: #fff8ea;
+  text-decoration: none;
+  border: 1px solid rgba(255, 248, 234, 0.4);
+  border-radius: 999px;
+  min-height: 36px;
+  padding: 0.35rem 0.8rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.review-bar a[aria-current="page"] {
+  background: #ffc200;
+  color: #003772;
+  border-color: #ffc200;
+  font-weight: 700;
+}
