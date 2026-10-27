@@ -24,22 +24,24 @@
     zoomSnap: 0.25
   });
 
-  map.createPane("fora").style.zIndex = 380;
-  map.createPane("entrega").style.zIndex = 400;
-  map.getPane("entrega").style.opacity = "0.8";
-  map.createPane("rotulos").style.zIndex = 450;
-  map.getPane("rotulos").style.pointerEvents = "none";
+  map.setView([STORE.lat, STORE.lng], 12);
 
   var ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/";
   var tileOptions = { maxNativeZoom: 16, maxZoom: 19 };
 
   L.tileLayer(ESRI + "World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", L.extend({
-    attribution: 'Mapa &copy; <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · Bairros: Prefeitura de Fortaleza'
+    attribution: 'Mapa &copy; <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }, tileOptions)).addTo(map);
 
-  L.tileLayer(ESRI + "World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}", L.extend({
-    pane: "rotulos"
-  }, tileOptions)).addTo(map);
+  var radius = L.circle([STORE.lat, STORE.lng], {
+    radius: 5000,
+    color: "#003A70",
+    weight: 2,
+    fillColor: "#FFC107",
+    fillOpacity: 0.38,
+    interactive: false
+  }).addTo(map);
+  map.fitBounds(radius.getBounds(), { padding: [24, 24] });
 
   bindTwoFinger(map);
 
@@ -64,9 +66,7 @@
     { className: "brand-popup", maxWidth: 260 }
   );
 
-  var byName = new Map();
   var otherNames = [];
-  var selected = null;
 
   fetch(new URL("../data/bairros.geojson", window.location.href))
     .then(function (response) {
@@ -74,54 +74,11 @@
       return response.json();
     })
     .then(function (data) {
-      var isDelivery = function (feature) { return feature.properties.entrega; };
-
-      L.geoJSON(data, {
-        pane: "fora",
-        interactive: false,
-        filter: function (feature) { return !isDelivery(feature); },
-        style: styleOf,
-        onEachFeature: function (feature) { otherNames.push(feature.properties.nome); }
-      }).addTo(map);
-
-      // The fill must stay opaque: it hides the shared inner edges of this
-      // outline, leaving only the outer contour. Translucency comes from the pane.
-      L.geoJSON(data, {
-        pane: "entrega",
-        interactive: false,
-        filter: isDelivery,
-        style: { color: "#003A70", weight: 5, fill: false, lineJoin: "round" }
-      }).addTo(map);
-
-      var delivery = L.geoJSON(data, {
-        pane: "entrega",
-        filter: isDelivery,
-        style: styleOf,
-        onEachFeature: function (feature, layer) {
-          var nome = feature.properties.nome;
-          byName.set(normalize(nome), layer);
-          layer.on("click", function () { selectName(nome); });
-          layer.on("mouseover", function () {
-            if (selected === layer) return;
-            layer.setStyle(paint(true, true));
-            layer.bringToFront();
-          });
-          layer.on("mouseout", function () {
-            if (selected === layer) return;
-            layer.setStyle(styleOf(feature));
-            if (selected) selected.bringToFront();
-          });
-        }
-      }).addTo(map);
-
-      if (delivery.getLayers().length) {
-        map.fitBounds(delivery.getBounds(), { padding: [18, 18] });
-      }
-      pin.setZIndexOffset(1000);
+      data.features.forEach(function (feature) {
+        if (!feature.properties.entrega) otherNames.push(feature.properties.nome);
+      });
     })
-    .catch(function () {
-      mapEl.insertAdjacentHTML("afterend", '<p class="map-error">O mapa não carregou. A lista de bairros abaixo continua valendo.</p>');
-    });
+    .catch(function () {});
 
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
@@ -131,35 +88,11 @@
 
   if (input) input.addEventListener("input", filterList);
 
-  function styleOf(feature) {
-    return paint(feature.properties.entrega, false);
-  }
-
-  function paint(delivery, hover) {
-    if (delivery) {
-      return {
-        color: hover ? "#003A70" : "#E0A400",
-        weight: hover ? 2.5 : 0.8,
-        fillColor: hover ? "#FFB300" : "#FFC107",
-        fillOpacity: 1
-      };
-    }
-    return {
-      color: "#b9b1a1",
-      weight: 0.6,
-      fillColor: "#efe9dc",
-      fillOpacity: 0.4
-    };
-  }
-
   function selectName(nome, scroll) {
     buttons.forEach(function (button) {
       button.setAttribute("aria-pressed", button.getAttribute("data-bairro") === nome ? "true" : "false");
     });
 
-    if (selected && selected.feature) selected.setStyle(styleOf(selected.feature));
-
-    var layer = byName.get(normalize(nome));
     var message = "Olá! Vim pelo site. Vocês entregam no meu bairro? (" + nome + ")";
     var href = "https://wa.me/5585997039895?text=" + encodeURIComponent(message);
 
@@ -174,25 +107,6 @@
       var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       picked.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" });
     }
-
-    if (!layer) {
-      selected = null;
-      return;
-    }
-
-    selected = layer;
-    layer.setStyle(paint(true, true));
-    layer.bringToFront();
-    pin.setZIndexOffset(1000);
-    map.fitBounds(layer.getBounds(), { padding: [36, 36], maxZoom: 14 });
-    layer.bindPopup(
-      '<p class="popup-title">' + escapeHtml(nome) + '</p>' +
-      '<p>Entrega aqui</p>' +
-      '<a class="btn btn-primary" href="' + href + '" target="_blank" rel="noopener noreferrer">' +
-      '<svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.2A10 10 0 1 0 12.04 2zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.2-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.2-.2-1.2-1.5-1.2-2.9s.7-2.1 1-2.4c.2-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.3.6.8 2 .9 2.2.1.1.1.3 0 .5l-.3.5c-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.2.2.4.2.5.3.1.2.1.7-.2 1.4z"/></svg>' +
-      'Peça pelo WhatsApp</a>',
-      { className: "brand-popup", maxWidth: 260 }
-    ).openPopup();
   }
 
   function filterList() {
@@ -245,12 +159,6 @@
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, " ")
       .trim();
-  }
-
-  function escapeHtml(value) {
-    return String(value).replace(/[&<>"']/g, function (char) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char];
-    });
   }
 
   function bindTwoFinger(leafletMap) {
