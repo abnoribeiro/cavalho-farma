@@ -1,11 +1,4 @@
 (function () {
-  var mapEl = document.getElementById("mapa");
-  if (!mapEl || typeof L === "undefined") return;
-
-  var STORE = { lat: -3.782489, lng: -38.5775907 };
-  var ROUTE = "https://www.google.com/maps/dir/?api=1&destination=" +
-    encodeURIComponent("Av. Gen. Osório de Paiva, 1762, Parangaba, Fortaleza - CE, 60720-015");
-
   var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-bairro]"));
   var input = document.getElementById("bairro-busca");
   var form = document.getElementById("busca-bairro");
@@ -17,54 +10,6 @@
   var pickedWa = document.getElementById("picked-wa");
 
   if (form) form.addEventListener("submit", function (event) { event.preventDefault(); });
-
-  var map = L.map(mapEl, {
-    scrollWheelZoom: false,
-    zoomControl: true,
-    zoomSnap: 0.25
-  });
-
-  map.setView([STORE.lat, STORE.lng], 12);
-
-  var ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/";
-  var tileOptions = { maxNativeZoom: 16, maxZoom: 19 };
-
-  L.tileLayer(ESRI + "World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", L.extend({
-    attribution: 'Mapa &copy; <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }, tileOptions)).addTo(map);
-
-  var radius = L.circle([STORE.lat, STORE.lng], {
-    radius: 5000,
-    color: "#003A70",
-    weight: 2,
-    fillColor: "#FFC107",
-    fillOpacity: 0.38,
-    interactive: false
-  }).addTo(map);
-  map.fitBounds(radius.getBounds(), { padding: [24, 24] });
-
-  bindTwoFinger(map);
-
-  var pin = L.marker([STORE.lat, STORE.lng], {
-    icon: L.icon({
-      iconUrl: new URL("../assets/localizacao.png", window.location.href).href,
-      className: "store-pin-img",
-      iconSize: [34, 44],
-      iconAnchor: [17, 44],
-      popupAnchor: [0, -40]
-    }),
-    zIndexOffset: 800,
-    title: "Carvalho Farma",
-    alt: "Carvalho Farma",
-    keyboard: true
-  }).addTo(map);
-
-  pin.bindPopup(
-    '<p class="popup-title">Carvalho Farma</p>' +
-    '<p>Av. Gen. Osório de Paiva, 1762 – Parangaba</p>' +
-    '<a class="btn btn-secondary" href="' + ROUTE + '" target="_blank" rel="noopener noreferrer">Traçar rota</a>',
-    { className: "brand-popup", maxWidth: 260 }
-  );
 
   var otherNames = [];
 
@@ -161,49 +106,4 @@
       .trim();
   }
 
-  function bindTwoFinger(leafletMap) {
-    var coarse = window.matchMedia("(pointer: coarse)").matches;
-    if (!coarse) return;
-
-    var el = leafletMap.getContainer();
-    leafletMap.dragging.disable();
-    leafletMap.touchZoom.disable();
-    el.style.touchAction = "pan-y";
-
-    var gesture = null;
-
-    el.addEventListener("touchstart", function (event) {
-      if (event.touches.length === 2) gesture = snapshot(event);
-    }, { passive: true });
-
-    el.addEventListener("touchmove", function (event) {
-      if (event.touches.length < 2 || !gesture) return;
-      event.preventDefault();
-      var now = snapshot(event);
-      leafletMap.panBy([now.x - gesture.x, now.y - gesture.y], { animate: false });
-      var zoomDelta = Math.log2(now.dist / gesture.dist);
-      if (Math.abs(zoomDelta) > 0.02) {
-        var point = L.point(now.x, now.y);
-        leafletMap.setZoomAround(leafletMap.containerPointToLatLng(point), leafletMap.getZoom() + zoomDelta);
-      }
-      gesture = snapshot(event);
-    }, { passive: false });
-
-    el.addEventListener("touchend", function (event) {
-      if (event.touches.length < 2) gesture = null;
-    });
-
-    function snapshot(event) {
-      var touches = event.touches;
-      var rect = el.getBoundingClientRect();
-      return {
-        x: (touches[0].clientX + touches[1].clientX) / 2 - rect.left,
-        y: (touches[0].clientY + touches[1].clientY) / 2 - rect.top,
-        dist: Math.hypot(
-          touches[0].clientX - touches[1].clientX,
-          touches[0].clientY - touches[1].clientY
-        )
-      };
-    }
-  }
 })();
